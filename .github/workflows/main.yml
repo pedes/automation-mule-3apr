@@ -52,7 +52,7 @@ jobs:
 
       - name: Lists all assets for our Organization
         run: >
-          anypoint-cli-v4 exchange:asset:list --organizationId 27127d7e-518e-48e7-b7e3-0dbf2c5475bf -o json
+          anypoint-cli-v4 exchange:asset:list --organizationId 27127d7e-518e-48e7-b7e3-0dbf2c5475bf --output json
 
           
 
