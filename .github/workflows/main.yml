@@ -50,9 +50,9 @@ jobs:
         run: >
           anypoint-cli-v4 runtime-mgr:application:describe ab45e233-2358-4f85-aa67-5e0ab82e0f48 --environment Sandbox
 
-      - name: Lists all async APIs in Exchange
+      - name: Lists all assets for our Organization
         run: >
-          anypoint-cli-v4 exchange:asset:list --type async-api
+          anypoint-cli-v4 exchange:asset:list --organizationId 27127d7e-518e-48e7-b7e3-0dbf2c5475bf -o json
 
           
 
