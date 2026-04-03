@@ -42,9 +42,7 @@ jobs:
         run: >
           anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox
 
-      - name: Get Metadata for each Mule App
+      - name: Get Metadata for one Mule App
         run: >
-          anypoint-cli-v4 runtime-mgr:application:describe \
-          $(anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox --output json | \
-          jq -r '.[] | select(.name == "mule-info") | .id')
+          anypoint-cli-v4 runtime-mgr:application:describe ab45e233-2358-4f85-aa67-5e0ab82e0f48
 
