@@ -38,6 +38,10 @@ jobs:
         run: >
           anypoint-cli-v4 conf client_secret 4B8b2070986E4a32A6c2E6c89770139E
 
+      - name: Config Environment
+        run: >
+          anypoint-cli-v4 conf environment Sandbox
+
       - name: List All Mule Apps
         run: >
           anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox
@@ -45,4 +49,12 @@ jobs:
       - name: Get Metadata for one Mule App
         run: >
           anypoint-cli-v4 runtime-mgr:application:describe ab45e233-2358-4f85-aa67-5e0ab82e0f48 --environment Sandbox
+
+      - name: Get Metadata for All Mule App
+        run: >
+          anypoint-cli-v4 runtime-mgr:application:describe \
+          $(anypoint-cli-v4 runtime-mgr:application:list --environment Sandbox --output json | \
+          jq -r '.[] | select(.name == "mule-info") | .id') --environment Sandbox
+
+          
 
